@@ -66,6 +66,6 @@ public class CourseCommandLineRunner implements CommandLineRunner {
 		});
 		
 		System.out.println(springRepo.findAll());
-
+		System.out.println(" SpringRepo Retrieved Record : " +springRepo.findByAuthor("Venky"));
 	}
 }
