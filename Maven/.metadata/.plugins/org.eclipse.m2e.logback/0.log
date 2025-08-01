@@ -491,3 +491,4 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: unexpected 
 2025-07-31 16:02:22,284 [Worker-25: Launching learn-maven (2)] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\venka\.p2\pool\plugins\com.google.guava.failureaccess_1.0.3.jar
 2025-07-31 16:02:22,288 [Worker-25: Launching learn-maven (2)] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "D:\Cloud\Git\Udemy\Java\Maven\learn-maven":
 2025-07-31 16:02:22,288 [Worker-25: Launching learn-maven (2)] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always --version
+2025-07-31 23:47:40,905 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
