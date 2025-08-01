@@ -1,0 +1,17 @@
+package com.consumer;
+
+import java.util.List;
+import java.util.logging.Logger;
+
+import com.sortingutil.SortingUtil;
+import com.sortingutil.algorithm.BubbleSort;
+
+public class DirectConsumer {
+	private static Logger logger = Logger.getLogger(MySortingUtilConsumer.class.getName());
+
+	public static void main(String[] args) {
+		BubbleSort util = new BubbleSort();
+		List<String> sorted = util.sort(List.of("Venky", "Deepu", "Pranav", "Kishan"));
+		logger.info(sorted.toString());
+	}
+}

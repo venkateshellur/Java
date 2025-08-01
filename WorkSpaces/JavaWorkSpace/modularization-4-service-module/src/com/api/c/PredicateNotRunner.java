@@ -1,0 +1,22 @@
+package com.api.c;
+
+import java.util.List;
+import java.util.function.Predicate;
+
+public class PredicateNotRunner {
+	public static void main(String[] args) {
+		List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 67, 89, 88);
+		Predicate<Integer> evenNumberPredicate = number -> number % 2 == 0;
+		// using the negate method
+		System.out.println("\nusing the negate()");
+		numbers.stream().filter(evenNumberPredicate.negate()).forEach(System.out::println);
+
+		// using the method approach
+		System.out.println("\nusing the method approach and not()");
+		numbers.stream().filter(Predicate.not(PredicateNotRunner::isEven)).forEach(System.out::println);
+	}
+
+	public static boolean isEven(Integer number) {
+		return number % 2 == 0;
+	}
+}

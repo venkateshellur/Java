@@ -1,0 +1,32 @@
+package com.concurrency;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class BiCounterWithAtomicInteger {
+	private int i = 0;
+	private int j = 0;
+	Lock LI = new ReentrantLock();
+	Lock LJ = new ReentrantLock();
+
+	// Not a Thread Safe
+	public void increment() {
+		LI.lock(); // Get lock for I
+		i++;
+		LI.unlock();// Release lock for I
+	}
+
+	public void IncrementI() {
+		LJ.lock();
+		i++;
+		LJ.unlock();
+	}
+
+	public int getI() {
+		return i;
+	}
+
+	public int getJ() {
+		return j;
+	}
+}

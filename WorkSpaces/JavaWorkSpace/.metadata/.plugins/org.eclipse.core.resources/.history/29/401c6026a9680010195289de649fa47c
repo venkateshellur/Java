@@ -1,0 +1,23 @@
+package com.Threadingconcepts;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+public class MultipleCallerRunner {
+
+	public static void main(String[] args) {
+	
+	}
+	
+	private static void callableRunnerTask() throws InterruptedException, ExecutionException {
+		ExecutorService eS = Executors.newFixedThreadPool(1);
+		Future<String> welcomeFuture = eS.submit(new CallableTask("Venky"));
+		System.out.println("New CallableTask(\"Venky\") Executed");
+		String welcomeMesssage = welcomeFuture.get();
+		System.out.println(welcomeMesssage);
+		System.out.println("Executing Main completed...");
+		eS.shutdown();
+	}
+}

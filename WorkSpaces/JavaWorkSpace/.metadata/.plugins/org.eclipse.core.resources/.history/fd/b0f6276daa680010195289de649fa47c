@@ -1,0 +1,27 @@
+package com.Threadingconcepts;
+
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+public class MultipleCallerRunner {
+
+	public static void main(String[] args) {
+		callableRunnerTask();
+	}
+
+	private static void callableRunnerTask() throws InterruptedException, ExecutionException {
+		ExecutorService eS = Executors.newFixedThreadPool(1);
+
+		List<CallableTask> cTL = List.of(new CallableTask("Venky"), new CallableTask("Deepika"),
+				new CallableTask("Pranav"), new CallableTask("Kishan"));
+		List<Future<String>> results = eS.invokeAll(cTL);
+
+		for (Future<String> result : results) {
+			System.out.println(result.get());
+		}
+		// eS.shutdown();
+	}
+}

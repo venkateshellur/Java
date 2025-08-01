@@ -1,0 +1,59 @@
+package com.concurrency;
+
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.atomic.LongAdder;
+
+public class ConcurrentMApRunner {
+	public static void main(String[] args) {
+
+		regularMap();
+		usingConcurrentMap();
+		usingConcurrentMapWithInbuiltMethodUsage();
+	}
+
+	private static void regularMap() {
+		// Using regular mapping which is not Thread Safe
+		Map<Character, LongAdder> occ = new Hashtable<>();
+		String str = "ABCD ABCD ABCD";
+		for (char character : str.toCharArray()) {
+			LongAdder lA = occ.get(character);
+			if (lA == null) {
+				lA = new LongAdder();
+			}
+			lA.increment();
+			occ.put(character, lA);
+		}
+		System.out.println(occ);
+
+	}
+
+	private static void usingConcurrentMap() {
+		// Using ConcurrentMapping which is Thread Safe
+		ConcurrentMap<Character, LongAdder> occ = new ConcurrentHashMap<>();
+		String str = "ABCD ABCD ABCD";
+		for (char character : str.toCharArray()) {
+			LongAdder lA = occ.get(character);
+			if (lA == null) {
+				lA = new LongAdder();
+			}
+			lA.increment();
+			occ.put(character, lA);
+		}
+		System.out.println(occ);
+	}
+
+	// Using the inbuilt method in the concurrentMap class which replaces the logic
+	// in forloop
+	private static void usingConcurrentMapWithInbuiltMethodUsage() {
+
+		ConcurrentMap<Character, LongAdder> occ = new ConcurrentHashMap<>();
+		String str = "ABCD ABCD ABCD";
+		for (char ch : str.toCharArray()) {
+			occ.computeIfAbsent(ch, c -> new LongAdder()).increment();
+		}
+		System.out.println(occ);
+	}
+}

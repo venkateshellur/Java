@@ -1,0 +1,19 @@
+package com.api.switchexpression;
+
+public class SwitchRecordsRunner {
+	
+	interface CustomerMessage {}
+	record Message(String text ) implements CustomerMessage{}
+	record Feedback(int rating, String description) implements CustomerMessage {}
+	
+	public static void main(String[] args) {
+		CustomerMessage message = new Message("Hello !");
+		
+		String response = switch(message)
+		{
+		case Message message -> message.text();
+		case Feedback feedback -> feedback.description();
+		default -> "Default Message";
+		};
+	}
+}

@@ -1,0 +1,22 @@
+package com.api.TextBlocks;
+
+public class TextBlocksRunner {
+
+	public static void main(String[] args) {
+		String str = """
+				Line 1
+					"Line 2"
+				Line 3
+				""";
+
+		String textBlock = """
+				Line 1 : %s
+					Line 2 : %s
+						Line3 : %s
+				""".format(" Venky is ", "24", " Forever");
+
+		System.out.println(str);
+		System.out.println(textBlock);
+	}
+
+}

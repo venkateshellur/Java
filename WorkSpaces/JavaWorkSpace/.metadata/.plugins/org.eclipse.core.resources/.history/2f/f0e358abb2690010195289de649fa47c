@@ -1,0 +1,54 @@
+package com.api.switchexpression;
+
+public class SwitchExpressionRunner {
+
+	public static String findDayOfTheWeek(int day) {
+		String dayOfWeek = "";
+		switch (day) {
+		case 1:
+			dayOfWeek = "Sunday";
+			break;
+		case 2:
+			dayOfWeek = "Monday";
+			break;
+		case 3:
+			dayOfWeek = "Tuesday";
+			break;
+		case 4:
+			dayOfWeek = "Wednesday";
+			break;
+		case 5:
+			dayOfWeek = "Thursday";
+			break;
+		case 6:
+			dayOfWeek = "Friday";
+			break;
+		case 7:
+			dayOfWeek = "Saturday";
+			break;
+		}
+	}
+
+	public static String findDayOfTheWeekWithSwitchExpression(int day) {
+		String dayOfWeek = switch (day) {
+		case 1 -> "Sunday";
+		case 2 -> {
+			System.out.println("Do group of operations");
+			yield "Monday";
+		}
+		case 3 -> "Tuesday";
+		case 4 -> "wednesday";
+		case 5 -> "Thursday";
+		case 6 -> "Friday";
+		case 7 -> "Saturday";
+		default -> throw new IllegalArgumentException("Invalid Option " + day);
+		};
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

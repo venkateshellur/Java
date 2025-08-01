@@ -1,0 +1,26 @@
+package com.api.switchexpression;
+
+public class SwitchRecordsRunner {
+
+	sealed interface CustomerMessage permits Message, Feedback {
+	}
+
+final	record Message(String text) implements CustomerMessage {
+	}
+
+	final record Feedback(int rating, String description) implements CustomerMessage {
+	}
+
+	public static void main(String[] args) {
+		CustomerMessage customerMessage = new Message("Hello !");
+
+		String response = switch (customerMessage) {
+		case Message message -> message.text();
+		case Feedback feedback -> feedback.description();
+		// as the interface is sealed and the implementing classes re final the compiler is smart enough to understand the interface or the classes can no more be extended and ignores the default case
+		//default -> "Default Message";
+		};
+
+		System.out.println(response);
+	}
+}

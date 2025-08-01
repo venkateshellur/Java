@@ -1,0 +1,24 @@
+package com.api.packagematching;
+
+public class PatternMatchingRunner {
+
+	public static void main(String[] args) {
+		Object objStr = "Some String";
+		instanceOfOld(objStr);
+		instanceOfnew(objStr);
+	}
+
+	private static void instanceOfOld(Object objStr) {
+		if (objStr instanceof String) {
+			String str = (String) objStr;
+			System.out.println(str.toLowerCase());
+		}
+	}
+
+	private static void instanceOfnew(Object objStr) {
+		if (objStr instanceof String str) {
+			System.out.println(str.toLowerCase());
+		}
+	}
+
+}

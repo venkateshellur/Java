@@ -1,0 +1,10 @@
+package com.api.sealed;
+
+public class sealedRunner {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

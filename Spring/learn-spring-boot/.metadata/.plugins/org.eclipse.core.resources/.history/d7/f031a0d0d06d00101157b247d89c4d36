@@ -1,0 +1,14 @@
+package com.UdemyLearning.learnSpringBoot.Courses.Controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CourseController {
+	
+	@GetMapping("/courses")
+	public List<Courses> getlAllCourses(){
+		return List.of(new Course(1, "Learn MicroServices", "Venky"));
+	}
+}

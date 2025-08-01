@@ -1,0 +1,15 @@
+package com.Files;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class DirectoryScanRunner {
+
+	public static void main(String[] args) throws IOException {
+		Path currentDir = Paths.get(".");
+		Files.list(currentDir).forEach(System.out::println);
+	}
+
+}

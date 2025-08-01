@@ -1,0 +1,37 @@
+package com.concurrency;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class BiCounter {
+	private int i = 0;
+	private int j = 0;
+	Lock LI = new ReentrantLock();
+	Lock LJ = new ReentrantLock();
+
+	// Not a Thread Safe
+	public void increment() {
+		// Get lock for I
+		i++;
+		// Release lock for I
+	}
+
+	// Thread safe, makes the next thread wait till the current operation is done
+	// Issue here is there are 2 synchronized methods so one has to wait till the
+	// other is executed.
+	public void synchronizedIncrementJ() {
+		j++;
+	}
+
+	public void synchronizedIncrementI() {
+		i++;
+	}
+
+	public int getI() {
+		return i;
+	}
+
+	public int getJ() {
+		return j;
+	}
+}

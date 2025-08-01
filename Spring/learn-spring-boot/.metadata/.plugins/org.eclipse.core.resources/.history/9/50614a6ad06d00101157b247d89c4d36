@@ -1,0 +1,5 @@
+package com.UdemyLearning.learnSpringBoot.Courses.Bean;
+
+public class Course {
+
+}

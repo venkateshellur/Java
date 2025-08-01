@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 packages to &apos;modularization-4-service-module/src&apos;&#x0D;&#x0A;- Original project: &apos;modularization-2-service-jar&apos;&#x0D;&#x0A;- Destination element: &apos;modularization-4-service-module/src&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     modularization-2-service-jar/src/com.sortingutil.algorithm&#x0D;&#x0A;     modularization-2-service-jar/src/com.sortingutil" description="Copy packages" destination="=modularization-4-service-module/src" element1="/src&lt;com.sortingutil.algorithm" element2="/src&lt;com.sortingutil" flags="589830" fragments="2" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1753479954201" version="1.0"/>
+</session>

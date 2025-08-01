@@ -1,0 +1,10 @@
+package com.api.virtualThreads;
+
+public class VirtualThreadsRunner {
+	// Traditionally threads were run at OS level, which lismits to the number of
+	// therads
+	// Virtual Threads run on JVM
+	public static void main(String[] args) {
+
+	}
+}

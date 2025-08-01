@@ -1,0 +1,10 @@
+package com.api.sealed;
+
+public class SealedInterfaceRunner {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

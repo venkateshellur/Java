@@ -1,0 +1,27 @@
+package com.UdemyLearning.learnSpringBoot.Courses.Bean;
+
+public class Course {
+
+	private long id;
+	private String coursename;
+	private String authorName;
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getCoursename() {
+		return coursename;
+	}
+	public void setCoursename(String coursename) {
+		this.coursename = coursename;
+	}
+	public String getAuthorName() {
+		return authorName;
+	}
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
+	
+}

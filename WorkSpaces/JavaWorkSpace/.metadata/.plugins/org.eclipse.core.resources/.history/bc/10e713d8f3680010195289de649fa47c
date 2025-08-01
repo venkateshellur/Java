@@ -1,0 +1,12 @@
+
+package com.concurrency;
+
+import java.util.List;
+
+public class CopyOnWriteArrayListRunner {
+
+	public static void main(String[] args) {
+		List<String> list = new CoyOnWriteArrayList<>();
+	}
+
+}

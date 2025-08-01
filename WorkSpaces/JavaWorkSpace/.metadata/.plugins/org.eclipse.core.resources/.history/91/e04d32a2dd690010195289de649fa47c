@@ -1,0 +1,93 @@
+package com.api.sequencedCollections;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+
+public class SequencedCollectionsRunner {
+
+	public static void main(String[] args) {
+		// sequencedArrayList();
+		// sequencedArrayList();
+		sequencedHashMap();
+	}
+
+	public static void sequencedArrayList() {
+		// Sequenced collection provides easy access to access
+		// first and last elements and even to get the reverse of the collection
+		var courseDetails = new ArrayList<>();
+
+		courseDetails.add("Spring Security");
+		courseDetails.addFirst("Spring Boot");
+		courseDetails.addLast("Spring Boot in AI");
+
+		courseDetails.add("Cloud computing with AWS");
+		courseDetails.add("Cloud Computing with Azure");
+
+		System.out.println("First Element : " + courseDetails.getFirst());
+		System.out.println("Last Element :" + courseDetails.getLast());
+
+		var reversed = courseDetails.reversed();
+
+		System.out.println("Reversed : " + reversed);
+		System.out.println("Remove First : " + courseDetails.removeFirst());
+		System.out.println("Remove Last : " + courseDetails.removeLast());
+		System.out.println("Final List " + courseDetails);
+	}
+
+	public static void sequencedHashSet() {
+
+		// Sequenced LinkedHashSet behaves the same as other collections except that
+		// linkedhashset does not hold the duplicate values.
+
+		var courseDetails = new LinkedHashSet<>(); // var courseDetails = new ArrayList<>();
+
+		courseDetails.add("Spring Security");
+		courseDetails.addFirst("Spring Boot");
+		courseDetails.addLast("Spring Boot in AI");
+		courseDetails.addLast("Spring Boot in AI"); // Duplicate elements will not be included
+		courseDetails.add("Cloud computing with AWS");
+		courseDetails.add("Cloud Computing with Azure");
+
+		System.out.println("First Element : " + courseDetails.getFirst());
+		System.out.println("Last Element :" + courseDetails.getLast());
+
+		var reversed = courseDetails.reversed();
+
+		System.out.println("Reversed : " + reversed);
+		System.out.println("Remove First : " + courseDetails.removeFirst());
+		System.out.println("Remove Last : " + courseDetails.removeLast());
+		System.out.println("Final List " + courseDetails);
+
+	}
+
+	public static void sequencedHashMap() {
+		var courseDetails = new LinkedHashMap<>();
+		courseDetails.put(1, "Venky");
+		courseDetails.put(2, "Deepu");
+		courseDetails.put(3, "Pranav");
+		courseDetails.put(4, "Kishan");
+		
+		System.out.println("Map : " + courseDetails);
+
+		System.out.println("Adding Elements");
+		courseDetails.putFirst(9, "Ellur");
+		courseDetails.putLast(10, "Last Value");
+		System.out.println("Map : " + courseDetails);
+
+		System.out.println("First Entry : " + courseDetails.firstEntry());
+		System.out.println("Last Entry : " + courseDetails.lastEntry());
+
+		System.out.println("Sequenced KeySEt : " + courseDetails.sequencedEntrySet());
+		System.out.println("Sequenced Values : " + courseDetails.sequencedValues());
+		System.out.println("Sequenced EntrySet : " + courseDetails.sequencedEntrySet());
+
+		System.out.println("First Poll Entry : " + courseDetails.pollFirstEntry());
+		System.out.println("Map : " + courseDetails);
+		System.out.println("Last Poll Entry : " + courseDetails.pollLastEntry());
+		System.out.println("Map : " + courseDetails);
+
+		System.out.println("Reversed : " + courseDetails.reversed());
+
+	}
+}

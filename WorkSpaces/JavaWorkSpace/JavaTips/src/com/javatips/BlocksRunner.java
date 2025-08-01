@@ -1,0 +1,9 @@
+package com.javatips;
+
+public class BlocksRunner {
+
+	public static void main(String[] args) {
+
+	}
+
+}

@@ -1,0 +1,28 @@
+package com.api.virtualThreads;
+
+import java.util.concurrent.TimeUnit;
+
+class SleepingThread implements Runnable {
+
+	@Override
+	public void run() {
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (Exception e) {
+
+		}
+	}
+
+}
+
+public class PlatformThreadsRunner {
+	// Traditionally threads were run at OS level, which lismits to the number of
+	// therads
+	// Virtual Threads run on JVM
+	public static void main(String[] args) {
+		for (int i = 0; i < 1_000_000; i++) {
+			System.out.println(i);
+			new Thread(new SleepingThread()).start();
+		}
+	}
+}

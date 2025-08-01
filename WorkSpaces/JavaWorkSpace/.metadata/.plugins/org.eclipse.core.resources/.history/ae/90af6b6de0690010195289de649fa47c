@@ -1,0 +1,38 @@
+package com.api.packagematching;
+
+public class PatternMatchingRunner {
+
+	public static void main(String[] args) {
+		Object objStr = "Some String";
+		instanceOfOld(objStr);
+		instanceOfnew(objStr);
+		patternMatchingWithRecord(new Transaction("Pavan", "Venky, 10000));
+	}
+
+	private static void instanceOfOld(Object objStr) {
+		if (objStr instanceof String) {
+			String str = (String) objStr;
+			System.out.println(str.toLowerCase());
+		}
+	}
+
+	private static void instanceOfnew(Object objStr) {
+		// inline declaration of the variable in the if condition check
+		if (objStr instanceof String str) {
+			System.out.println(str.toLowerCase());
+		}
+	}
+
+	// Patternmatching with Record
+	record Transaction(String sender, String receiver, int amount) {
+	}
+
+	private static void patternMatchingWithRecord(Object objTran) {
+		if (objTran instanceof Transaction trans) {
+			System.out.println(
+					"The sender %s sent %d to the receiver %s".formatted(trans.sender, trans.amount, trans.receiver));
+		}
+
+	}
+
+}

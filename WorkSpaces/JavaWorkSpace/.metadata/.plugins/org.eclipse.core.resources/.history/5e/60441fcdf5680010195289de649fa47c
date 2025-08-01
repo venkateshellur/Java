@@ -1,0 +1,12 @@
+package com.javatips;
+
+import static java.lang.System.out;
+
+public class ImportsRunner {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		out.println("Using Static Imports.");
+	}
+
+}

@@ -1,0 +1,19 @@
+package com.concurrency;
+
+import java.util.Map;
+import java.util.concurrent.atomic.LongAdder;
+
+public class ConcurrentMApRunner {
+	public static void main(String[] args) {
+		Map<Character, LongAdder> occ = new Hashtable<>();
+		String str = "ABCD ABCD ABCD";
+		for(char character:str.toCharArray()) {
+			LongAdder lA = occ.get(character);
+			if(lA == null ) {
+				lA = new LongAdder();
+			}
+			lA.increment();
+			occ.put(character,  lA);
+		}
+	} 
+}

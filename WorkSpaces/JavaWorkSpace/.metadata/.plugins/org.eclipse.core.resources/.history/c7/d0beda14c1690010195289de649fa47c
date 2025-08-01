@@ -1,0 +1,13 @@
+package com.api.virtualThreads;
+
+public class VirtualThreadsRunner {
+
+	// Virtual threads run on top of small pool of Os Threads
+	// Virtual threads are managed by JVM
+	// Benifit : can create millions of lightweight threads without high memory usage
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

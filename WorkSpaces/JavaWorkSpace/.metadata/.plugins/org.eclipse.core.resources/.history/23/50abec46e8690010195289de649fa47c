@@ -1,0 +1,37 @@
+package com.api.streamgatherers;
+
+import java.util.stream.Gatherers;
+import java.util.stream.IntStream;
+
+public class StreamGathererRunner {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		fold();
+		mapConcurent();
+		windowFixed();
+	}
+
+	public static void fold() {
+		var numbers = IntStream.rangeClosed(1, 20).boxed();
+		numbers.gather(Gatherers.fold(() -> 0, (sum, i) -> sum + i)).forEach(System.out::println);
+	}
+
+	public static void mapConcurent() {
+		var numbers = IntStream.rangeClosed(1, 20).boxed();
+		// mapConcurrent first paramter is for virtual thread
+		// in below case we are creating 4 virtual threads
+		numbers.gather(Gatherers.mapConcurrent(4, i -> i * i)).forEach(System.out::println);
+	}
+
+	public static void windowFixed() {
+		var numbers = IntStream.rangeClosed(1, 20).boxed();
+		numbers.gather(Gatherers.windowFixed(5)).forEach(System.out::println);
+	}
+
+	public static void slidingWindow() {
+		var numbers = IntStream.rangeClosed(1, 20).boxed();
+		numbers.gather(Gatherers.windowFixed(5)).forEach(System.out::println);
+	}
+
+}

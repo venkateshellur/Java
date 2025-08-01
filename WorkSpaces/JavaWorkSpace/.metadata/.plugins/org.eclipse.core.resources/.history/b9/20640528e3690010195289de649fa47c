@@ -1,0 +1,70 @@
+package com.api.packagematching;
+
+import com.api.packagematching.PatternMatchingNestedRecords.Customer;
+import com.api.packagematching.PatternMatchingNestedRecords.Order;
+import com.api.packagematching.PatternMatchingNestedRecords.Product;
+import com.api.packagematching.PatternMatchingRecord.Transaction;
+
+public class PatternMatchingRunner {
+
+	public static void main(String[] args) {
+		Object objStr = "Some String";
+		instanceOfOld(objStr);
+		instanceOfnew(objStr);
+		new PatternMatchingRecord().patternMatchingWithRecordOld(new Transaction("Pavan", "Venky", 10000));
+		new PatternMatchingRecord().patternMatchingWithRecordNew(new Transaction("Pavan", "Venky", 10000));
+		new PatternMatchingNestedRecords().processOrder(new Order(new Customer("Pranav", "pranav@google.com"),
+				new Product("I will teach you to be rich Book", 25)));
+	}
+
+	private static void instanceOfOld(Object objStr) {
+		if (objStr instanceof String) {
+			String str = (String) objStr;
+			System.out.println(str.toLowerCase());
+		}
+	}
+
+	private static void instanceOfnew(Object objStr) {
+		// inline declaration of the variable in the if condition check
+		if (objStr instanceof String str) {
+			System.out.println(str.toLowerCase());
+		}
+	}
+
+}
+
+class PatternMatchingRecord {
+	// Patternmatching with Record
+	record Transaction(String sender, String receiver, int amount) {
+	}
+
+	public static void patternMatchingWithRecordOld(Object objTran) {
+		if (objTran instanceof Transaction trans) {
+			System.out.println(
+					"The sender %s sent %d to the receiver %s".formatted(trans.sender, trans.amount, trans.receiver));
+		}
+	}
+
+	public static void patternMatchingWithRecordNew(Object objTran) {
+		if (objTran instanceof Transaction(String sen, String rec, int amount)) {
+			System.out.println("The sender %s sent %d to the receiver %s".formatted(sen, amount, rec));
+		}
+	}
+}
+
+class PatternMatchingNestedRecords {
+	record Customer(String name, String email) {
+	}
+
+	record Product(String name, double price) {
+	}
+
+	record Order(Customer customer, Product product) {
+	}
+
+	public static void processOrder(Object obj) {
+		if (obj instanceof Order(Customer(String name, String email), Product(String pName, double price))) {
+			System.out.println("The %s with %s ordered %s with the price %d".formatted(name, email, pName, price));
+		}
+	}
+}

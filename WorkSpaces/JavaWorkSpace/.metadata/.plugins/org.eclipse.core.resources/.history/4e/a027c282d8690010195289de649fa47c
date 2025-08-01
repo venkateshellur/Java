@@ -1,0 +1,62 @@
+package com.api.sequencedCollections;
+
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+
+public class SequencedCollectionsRunner {
+
+	public static void main(String[] args) {
+		sequencedArrayList();
+		sequencedArrayList();
+	}
+
+	public static void sequencedArrayList() {
+		// Sequenced collection provides easy access to access
+		// first and last elements and even to get the reverse of the collection
+		var courseDetails = new ArrayList<>();
+
+		courseDetails.add("Spring Security");
+		courseDetails.addFirst("Spring Boot");
+		courseDetails.addLast("Spring Boot in AI");
+
+		courseDetails.add("Cloud computing with AWS");
+		courseDetails.add("Cloud Computing with Azure");
+
+		System.out.println("First Element : " + courseDetails.getFirst());
+		System.out.println("Last Element :" + courseDetails.getLast());
+
+		var reversed = courseDetails.reversed();
+
+		System.out.println("Reversed : " + reversed);
+		System.out.println("Remove First : " + courseDetails.removeFirst());
+		System.out.println("Remove Last : " + courseDetails.removeLast());
+		System.out.println("Final List " + courseDetails);
+	}
+
+	public static void sequencedHashSet() {
+
+		// Sequenced LinkedHashSet behaves the same as other collections except that
+		// linkedhashset does not hold the duplicate values.
+
+		var courseDetails = new LinkedHashSet<>(); // var courseDetails = new ArrayList<>();
+
+		courseDetails.add("Spring Security");
+		courseDetails.addFirst("Spring Boot");
+		courseDetails.addLast("Spring Boot in AI");
+		courseDetails.addLast("Spring Boot in AI");		// Duplicate elements will not be included
+		courseDetails.add("Cloud computing with AWS");
+		courseDetails.add("Cloud Computing with Azure");
+
+		System.out.println("First Element : " + courseDetails.getFirst());
+		System.out.println("Last Element :" + courseDetails.getLast());
+
+		var reversed = courseDetails.reversed();
+
+		System.out.println("Reversed : " + reversed);
+		System.out.println("Remove First : " + courseDetails.removeFirst());
+		System.out.println("Remove Last : " + courseDetails.removeLast());
+		System.out.println("Final List " + courseDetails);
+
+	}
+
+}

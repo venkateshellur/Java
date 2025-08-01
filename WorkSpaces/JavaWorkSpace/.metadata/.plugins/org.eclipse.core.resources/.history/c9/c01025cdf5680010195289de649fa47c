@@ -1,0 +1,17 @@
+package com.javatips;
+
+import static java.lang.System.out;
+import static java.util.Collection.*;
+
+public class ImportsRunner {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		out.println("Using Static Imports.");
+		
+		sort(new ArrayList<String>());
+		out.print("Even methods can be staticl imported like above sort method.");
+	}
+
+}

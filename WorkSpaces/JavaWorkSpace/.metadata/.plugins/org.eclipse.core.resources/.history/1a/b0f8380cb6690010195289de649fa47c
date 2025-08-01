@@ -1,0 +1,36 @@
+package com.api.records;
+
+import java.util.List;
+
+public class RecordsRunner {
+
+	// Creating the record in simplest way is as below
+	// record Person(String name, String email, String phoneNumber) {}
+
+	// Creating a record with compact constructor (compact constructors can be only
+	// used in records)
+	// only validations can be done, but no assignments can be done
+	record Person(String name, String email, String phoneNumber) {
+		Person {
+			if (name == null) {
+				throw new IllegalArgumentException("Name cqannot be null");
+			}}
+			
+		public String name() {
+			System.out.println("Print the name " + name);
+			return name;
+		
+		}
+	}
+
+	public static void main(String[] args) {
+		Person person = new Person("Venkatesh", "ellur@ellur.com", "123456789");
+		Person person1 = new Person("Deepika", "ellur@ellur.com", "123456789");
+		Person person2 = new Person("Pranav", "ellur@ellur.com", "123456789");
+		Person person3 = new Person("Kishan", "ellur@ellur.com", "123456789");
+
+		List<Person> people = List.of(person, person1, person2);
+		System.out.println(person);
+		people.stream().forEach(p -> System.out.println(p));
+	}
+}

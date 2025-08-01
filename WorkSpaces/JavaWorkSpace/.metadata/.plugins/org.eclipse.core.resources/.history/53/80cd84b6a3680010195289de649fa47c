@@ -1,0 +1,52 @@
+package com.Threadingconcepts;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+class Task extends Thread {
+	private int number;
+
+	public Task(int number) {
+		this.number = number;
+	}
+
+	@Override
+	public void run() {
+		System.out.println("\n Task " + number + " Started");
+		for (int i = number * 100; i <= number * 100 + 99; i++) {
+			System.out.print(i + " ");
+		}
+		System.out.println("\n Task" + number + " Completed");
+	}
+}
+
+public class ExecutorServiceRunner {
+
+	public static void main(String[] args) {
+		ExecutorService execServ = Executors.newFixedThreadPool(2);
+
+		execServ.execute(new Task(1));
+		execServ.execute(new Task(2));
+		execServ.execute(new Task(3));
+		execServ.execute(new Task(4));
+
+	}
+
+	private void simpleThreadsExample() {
+//		ExecutorService exeServ = Executors.newSingleThreadExecutor(); // This initialization makes sure there is only
+		// one thread running.
+		ExecutorService exeServ = Executors.newFixedThreadPool(2);
+		exeServ.execute(new Task1());
+		exeServ.execute(new Thread(new Task2()));
+
+		System.out.println("Task 3 Kicked Off");
+		for (int i = 400; i < 500; i++) {
+			System.out.print(i + " ");
+		}
+		System.out.println("Task 3 DONE");
+		System.out.println("Main DONE");
+		exeServ.shutdown(); // It is a must to shut down the executor service if npt it keeps running
+							// holding the memory.
+	}
+
+}
